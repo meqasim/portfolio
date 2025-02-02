@@ -4,6 +4,7 @@ import { EB_Garamond, Oswald } from "next/font/google";
 import "./globals.css";
 import { cn } from "../../lib/utils";
 import localFont from "next/font/local";
+import { ThemeProvider } from "next-themes";
 
 
 //Fonts
@@ -48,7 +49,15 @@ export default function RootLayout({
       className={cn(Mainfont.className, fontOswald.variable, localfont.variable)}>
       
       {/* className={`${Mainfont.className} ${fontOswald} antialiased`} */}
+      <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+      >
+
         {children}
+      </ThemeProvider>
       </body>
     </html>
   );
